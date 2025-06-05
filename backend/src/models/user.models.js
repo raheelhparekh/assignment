@@ -7,6 +7,20 @@ const userSchema = new mongoose.Schema(
     email: String,
     password: String,
 
+    booksAdded: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Book",
+      },
+    ],
+
+    reviewsAdded: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Review",
+      },
+    ],
+
     refreshToken: {
       type: String,
     },

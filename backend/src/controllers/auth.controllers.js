@@ -2,6 +2,7 @@ import  User  from "../models/user.models.js";
 import jwt from "jsonwebtoken";
 import bcrypt, { hash } from "bcrypt";
 
+// Signup: creates a new user, checks for existing users, and hashes the password.
 export const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -47,6 +48,8 @@ export const registerUser = async (req, res) => {
   }
 };
 
+
+// Login: This controller handles user login, validates credentials, and issues JWT tokens.
 export const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -113,6 +116,7 @@ export const login = async (req, res) => {
   }
 };
 
+// Logout: This controller handles user logout by clearing the JWT cookies.
 export const logout = async (req, res) => {
   try {
     res.cookie("accessToken", "", {

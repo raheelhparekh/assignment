@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.models.js";
 
+// middleware adds user data in req and passes forward
 export const isLoggedIn = async (req, res, next) => {
   try {
     const accessToken = req.cookies?.accessToken;
