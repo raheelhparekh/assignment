@@ -24,7 +24,8 @@ const reviewSchema = new mongoose.Schema({
   timestamps: true
 });
 
-reviewSchema.index({ book: 1, user: 1 }, { unique: true }); // Only one review per book per user
+// 1 review per user per book
+reviewSchema.index({ bookId: 1, userId: 1 }, { unique: true });
 
 const Review = mongoose.model("Review", reviewSchema);
 export default Review;
